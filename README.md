@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# OneLine Tools
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+OneLine Tools is a modern, high-performance, edge-deployed online toolkit featuring 16+ essential developer, text, security, and utility tools.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Edge-Powered**: Built on Cloudflare Workers and Pages, ensuring ultra-fast load times globally.
+- **Modern UI**: Crafted with React 18, TypeScript, and Tailwind CSS v4.
+- **User Experience**: Supports Dark/Light mode, multi-language (EN/ZH), favorites, and recently used tools.
+- **Privacy-First**: Most tools run entirely in the browser (client-side) for maximum data privacy.
 
-## React Compiler
+### Tool Categories
+- **Developer**: JSON Formatter, SQL Formatter, URL Encoder, Base64 Encoder, UUID Generator, Regex Builder.
+- **Text**: Word Counter, Case Converter, Lorem Ipsum, Markdown Preview.
+- **Security**: Hash Generator (Web Crypto), Password Generator.
+- **Visual**: Palette Generator, Glassmorphism Generator.
+- **Utility**: QR Code Generator, Unit Converter.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS v4
+- **Deployment**: Cloudflare Workers (Static Assets)
+- **Icons**: Lucide React
+- **Internationalization**: React Context API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Local Development
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Deployment
+
+To deploy to Cloudflare Workers:
+
+```bash
+npm run build
+npx wrangler deploy
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## License
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project is open-source.
